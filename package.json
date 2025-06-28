@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+   "build": "rm -rf dist && vite build && cat ./package.json | grep -v '\"private\":' > dist/package.json",
+    "prepare": "npm run build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
